@@ -1,5 +1,4 @@
-import { PaperAirplaneIcon } from '@heroicons/react/16/solid';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Send } from 'lucide-react'
 
 function MainSection() {
   return (
@@ -21,7 +20,10 @@ function MainSection() {
             </p>
             <a href="#contact">
               <button className="px-6 py-3 bg-gray-500 text-white rounded-xl hover:bg-black hover:text-white hover:font-semibold flex items-center mb-4 md:mb-8 transition">
-                Say Hello <span className="ml-2"><Send size={16}/></span>
+                Say Hello{' '}
+                <span className="ml-2">
+                  <Send size={16} />
+                </span>
               </button>
             </a>
 
@@ -76,7 +78,7 @@ function MainSection() {
         </a>
       </div>
     </section>
-  );
+  )
 }
 
-export default MainSection;
+export default MainSection
