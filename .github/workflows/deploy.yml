@@ -16,7 +16,7 @@ jobs:
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
-          node-version: '18.12'  
+          node-version: '18.12'
 
       - name: Install pnpm
         run: npm install -g pnpm@latest
@@ -25,7 +25,7 @@ jobs:
         run: pnpm store prune
 
       - name: Install dependencies
-        run: pnpm install --store-dir /tmp/.pnpm-store
+        run: pnpm install --store-dir $HOME/.pnpm-store
 
       - name: Build and deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
