@@ -12,32 +12,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 
 
-      - name: Set up Node.js
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: '18.12.0'
+          node-version: '16'
 
-      - name: Set up pnpm environment
-        run: |
-          export PNPM_HOME=$HOME/.pnpm
-          export PATH=$PNPM_HOME:$PATH
-          mkdir -p $PNPM_HOME
-          mkdir -p $HOME/.pnpm-store
-          corepack enable
-      - name: Clean pnpm cache
+      - name: Install pnpm
+        run: npm install -g pnpm@latest
+
+      - name: Clean pnpm store
         run: pnpm store prune
-        
+
       - name: Install dependencies
-        run: pnpm install --store-dir /tmp/.pnpm-store
+        run: pnpm install --unsafe-perm --store-dir /tmp/.pnpm-store
 
-      - name: Build project
-        run: pnpm build
-
-      - name: Deploy to GitHub Pages
+      - name: Build and deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist 
+          deploy_branch: gh-pages
+          folder: build
