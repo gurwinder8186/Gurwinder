@@ -27,9 +27,11 @@ jobs:
           mkdir -p $PNPM_HOME
           mkdir -p $HOME/.pnpm-store
           corepack enable
-
+      - name: Clean pnpm cache
+        run: pnpm store prune
+        
       - name: Install dependencies
-        run: pnpm install --store-dir $HOME/.pnpm-store
+        run: pnpm install --store-dir /tmp/.pnpm-store
 
       - name: Build project
         run: pnpm build
