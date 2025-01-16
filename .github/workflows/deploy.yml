@@ -25,7 +25,7 @@ jobs:
         run: pnpm store prune
 
       - name: Install dependencies
-        run: pnpm install --store-dir $HOME/.pnpm-store
+        run: pnpm install --store-dir /home/runner/.pnpm-store
 
       - name: Build and deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
