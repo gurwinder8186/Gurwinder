@@ -1,6 +1,6 @@
 function AboutSection() {
   return (
-    <section className="md:py-20 bg-white text-center scroll-smooth relative">
+    <section className="md:py-20 bg-white text-center scroll-smooth relative pb-20">
       <div className="max-w-4xl mx-auto px-6 flex flex-col items-center space-y-8">
         <h3 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 md:mb-8">
           About Me
@@ -40,9 +40,8 @@ function AboutSection() {
             Download CV
           </a>
         </div>
-
-        {/* Scroll Down Button at the End of the Section */}
-        <a
+      </div>
+      <a
           href="#projects"
           className="flex items-center space-x-3 absolute bottom-4 left-1/2 transform -translate-x-1/2"
         >
@@ -52,7 +51,6 @@ function AboutSection() {
             </span>
           </div>
         </a>
-      </div>
     </section>
   )
 }

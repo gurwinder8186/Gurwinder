@@ -82,13 +82,15 @@ function ContactSection() {
               rows={4}
               required
             ></textarea>
+            <div className="flex justify-center">
               <button
-      type="submit"
-      className="flex items-center gap-2 px-6 py-3 bg-gray-500 text-white rounded-xl hover:bg-black focus:outline-none focus:ring-2 focus:ring-black"
-    >
-      Send Message
-      <Send size={16} />
-    </button>
+                type="submit"
+                className="flex items-center gap-2 px-6 py-3 bg-gray-500 text-white rounded-xl hover:bg-black focus:outline-none focus:ring-2 focus:ring-black"
+              >
+                Send Message
+                <Send size={16} />
+              </button>
+            </div>
           </form>
 
           {isSuccess && (
@@ -99,7 +101,6 @@ function ContactSection() {
           )}
         </div>
 
-        {/* Scroll Up Button */}
         <a
           href="#header"
           className="flex items-center space-x-3 absolute bottom-4 left-1/2 transform -translate-x-1/2"
