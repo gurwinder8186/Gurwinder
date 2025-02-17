@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # This triggers the action on every push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # GitHub Actions runner for Ubuntu
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Set up Node.js and specify the version (Node 18+ for pnpm)
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.12'
+
+      # 3. Install pnpm globally
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 4. Clean pnpm store to avoid any issues with caching
+      - name: Clean pnpm store
+        run: pnpm store prune
+
+      # 5. Install dependencies using pnpm
+      - name: Install dependencies
+        run: pnpm install --store-dir /home/runner/.pnpm-store
+
+      # 6. Build your project (Make sure the build folder is set correctly)
+      - name: Build the project
+        run: pnpm run build
+
+      # 7. Deploy the built project to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_branch: gh-pages  # Branch where the build will be deployed
+          folder: build  # Folder containing the built project (adjust if different)
+          token: ${{ secrets.GITHUB_TOKEN }}  # Ensure this is being used for authentication
