@@ -16,7 +16,7 @@ function ProjectsSection() {
         'Bite-Share is a web platform designed to connect people and organizations with excess food to those in need. As the Backend and Vibes Lead, my main responsibilities included developing the backend logic and creating optimized database queries for managing food baskets, including their display and creation. I also played a key role in building an interactive leaderboard to recognize and highlight the top contributors, encouraging a sense of community. The app leverages RESTful APIs for efficient data handling and communication.',
       githubLink: 'https://github.com/gurwinder8186/bite-share',
       liveLink: 'https://bite-share-pohutukawa24.devacademy.nz/',
-      hasLiveButton: true,
+      hasLiveButton: false,
     },
     {
       title: 'Food-Recipes',
